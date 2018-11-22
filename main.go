@@ -3,9 +3,9 @@ package main
 import (
 	"fmt"
 
-	"github.com/satori/go.uuid"
+	"github.com/gofrs/uuid"
 )
 
 func main() {
-	fmt.Print(uuid.NewV4())
+	fmt.Print(uuid.Must(uuid.NewV4()))
 }
