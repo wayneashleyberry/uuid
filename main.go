@@ -9,8 +9,10 @@ import (
 	"github.com/spf13/cobra"
 )
 
-var version string
-var date string
+var (
+	version string
+	date    string
+)
 
 func main() {
 	cmd := &cobra.Command{
@@ -50,6 +52,7 @@ func main() {
 		Aliases: []string{"v"},
 		RunE: func(cmd *cobra.Command, args []string) error {
 			fmt.Printf("uuid v%s (%s)\n", version, date)
+
 			return nil
 		},
 	})
@@ -61,6 +64,7 @@ func main() {
 		Args:    cobra.ExactArgs(1),
 		RunE: func(cmd *cobra.Command, args []string) error {
 			_, err := uuid.FromString(args[0])
+
 			return err
 		},
 	})
